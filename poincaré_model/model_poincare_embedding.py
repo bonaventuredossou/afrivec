@@ -6,6 +6,7 @@
 # =============================================================================================================== #
 
 # https://radimrehurek.com/gensim/models/poincare.html
+# to install the gensim library, use: pip install gensim
 # HyperLex Paper and GitHub Repository: https://github.com/cambridgeltl/hyperlex
 
 # All imports
