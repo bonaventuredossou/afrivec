@@ -4,3 +4,5 @@
 # Authors: Bonaventure F. P. Dossou and Mohammed Sabry                                                            #
 # Training a Poincaré Embedding model                                                                             #
 # =============================================================================================================== #
+
+# Please cite this while using: 
