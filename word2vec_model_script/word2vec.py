@@ -25,20 +25,20 @@ def save_list(lines, filename):
 
 path = "/path/to/corpus.txt" # dataset/fon_family_embedding.txt
 
-sentences_fon = load_doc(path)
-sentences = [_.split() for _ in sentences_fon]
+sentences = load_doc(path)
+sentences = [_.split() for _ in sentences]
 
 # train model
 model = Word2Vec(sentences, min_count=5, alpha=0.5) # paremeters could be fine-tuned
 # save model
 model.save('/path/to/model') # models/fon_family_words_model_1.bin
 # load model
-new_model_best = Word2Vec.load('fon_family_words_model.bin')
+new_model_best = Word2Vec.load('/path/to/model')
 
 X = new_model_best[new_model_best.wv.vocab]
 pca = PCA(n_components=2)
 result = pca.fit_transform(X)
-create a scatter plot of the projection
+# create a scatter plot of the projection
 pyplot.scatter(result[:, 0], result[:, 1])
 words = list(set(new_model_best.wv.vocab))
 for i, word in enumerate(words):
@@ -47,5 +47,6 @@ pyplot.title("Visualization of Fon Word Embedding - Word Vectors Using PCA")
 pyplot.savefig("family_word_embedding.png")
 pyplot.show()
 
+#examples of further analysis on word vec 
 result2 = new_model_best.most_similar(positive=["tɔ"], negative=["nɔ"], topn=5)
 save_list(result2, "/path/to/results.txt")
